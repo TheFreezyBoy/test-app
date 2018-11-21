@@ -7,32 +7,29 @@ const url = 'https://api.unsplash.com/photos/?client_id=3e69419ed57e93397e5729a1
 
 export default class HomeScreen extends Component {
     state = {
-        title: `DEVSTEAM.MOBI`,
         arr: []
     };
 
-    componentDidMount = async() => {
-        const response = await fetch(url);
-        const arr = await response.json();
-        this.setState({ arr });
-        console.log( arr );
-    };
+componentDidMount = async() => {
+    const response = await fetch(url);
+    const arr = await response.json();
+    this.setState({ arr });
+    console.log( arr );
+};
 
-    render() {
-        const { arr } = this.state;
+render() {
+    const { arr } = this.state;
 
-        return (
-            <Body>
-            { arr.map(item => {
-                return (<ImageCard
-                    arr={item}
-                    key={item.id}
-                    onPress={ () => { this.props.navigation.navigate('Picture', (item.urls))} }
-                />)
-            })}
-            </Body>
-        );
-    }
+    return (
+        <Body>
+        { arr.map(item => {
+            return (<ImageCard
+                arr={item}
+                key={item.id}
+                onPress={ () => { this.props.navigation.navigate('Picture', (item.urls))} }
+            />)
+        })}
+        </Body>
+    );
 }
-
-
+}
