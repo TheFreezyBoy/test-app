@@ -9,7 +9,7 @@ export default class FullImage extends Component {
 
         return (
             <View style={ container }>
-                    <Image resizeMode={'contain'} style={ container } source={{ uri: full }}/>
+                    <Image resizeMode={ 'contain' } style={ container } source={{ uri: full }}/>
             </View>
         )
     }

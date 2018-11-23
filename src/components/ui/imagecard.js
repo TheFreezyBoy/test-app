@@ -1,15 +1,13 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 
 import ShowSmallImage from "./showsmallimage";
 import Description from "./description";
 import {w} from "../../constants";
 
-
-
-const ImageCard = ({ arr, onPress }) => {
+const ImageCard = ({ photos, onPress }) => {
     const { container } = styles;
-    const { urls, user } = arr;
+    const { urls, user } = photos;
 
     return (
         <TouchableOpacity onPress={ onPress }>

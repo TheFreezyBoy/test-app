@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
+import { connect } from 'react-redux'
 
-const Body = props => {
-    const { container } = styles;
+import ImageCard from './imagecard'
 
-    return (
-        <ScrollView>
-            <View style={ container }>
-                { props.children }
-                </View>
-        </ScrollView>
-    )
-};
+class Body  extends Component {
+
+    render () {
+        const { container } = styles;
+        const photos = this.props.photos;
+
+        return (
+            <ScrollView>
+                <View style={ container }>
+                    { photos.map(item => {
+                        return (<ImageCard
+                            photos={ item }
+                            key={ item.id }
+                            onPress={ () => { this.props.navigation.navigate('Picture', (item.urls)) } }
+                            />
+                        )
+                    })}
+                    </View>
+            </ScrollView>
+        )
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -21,5 +35,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     }
 });
+const mapStateToProps = (state) => {
+    return {
+        photos: state.arr
+    }
+};
 
-export default Body
+export default connect(mapStateToProps)(Body)
