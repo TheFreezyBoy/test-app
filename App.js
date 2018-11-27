@@ -6,7 +6,7 @@ import FullImage from './src/components/fullimage'
 
 const AppNavigator = createStackNavigator ({
     Home: {
-        screen: HomeScreen
+        screen: HomeScreen,
     },
     Picture: {
         screen: FullImage

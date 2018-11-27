@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, StyleSheet } from "react-native";
 import { h, w } from "../../constants";
 
-const ShowSmallImage = ({urls}) => {
+const ShowSmallImage = ({ urls }) => {
     const { small } = urls;
     const { cover } = styles;
 

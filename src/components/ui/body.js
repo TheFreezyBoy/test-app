@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { connect } from 'react-redux'
 
 import ImageCard from './imagecard'
@@ -8,7 +8,8 @@ class Body  extends Component {
 
     render () {
         const { container } = styles;
-        const photos = this.props.photos;
+        const  photos = this.props.photos;
+        const er = this.props.error.message;
 
         return (
             <ScrollView>
@@ -18,10 +19,10 @@ class Body  extends Component {
                             photos={ item }
                             key={ item.id }
                             onPress={ () => { this.props.navigation.navigate('Picture', (item.urls)) } }
-                            />
-                        )
+                            />)
                     })}
-                    </View>
+                    <Text>{ er }</Text>
+                </View>
             </ScrollView>
         )
     }
@@ -36,9 +37,12 @@ const styles = StyleSheet.create({
     }
 });
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        photos: state.arr
+        photos: state.arr,
+        error: state.error
     }
 };
+
 
 export default connect(mapStateToProps)(Body)

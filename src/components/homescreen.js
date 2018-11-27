@@ -4,28 +4,20 @@ import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 
 import Body from './ui/body';
-import { getPhotos } from "../reducers/photos";
+import { getPhotos } from "../actions/getphotos";
+import { createArr } from '../reducers/reducer.js'
 
 const store = createStore( createArr, applyMiddleware(thunk) );
-
-function createArr( state = {arr: [] }, action ) {
-    if( action.type === 'ADD_PHOTOS' ){
-        return { ...state, arr: action.payload }
-    }
-    return state
-}
 
 store.dispatch(getPhotos());
 
 export default class HomeScreen extends Component {
 
-render() {
-    return (
-        <Provider store={ store }>
-            <Body navigation={ this.props.navigation }>
-            </Body>
-        </Provider>
-    );
+    render() {
+        return (
+            <Provider store={ store }>
+                <Body navigation={ this.props.navigation }/>
+            </Provider>
+        );
+    }
 }
-}
-
