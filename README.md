@@ -1,7 +1,7 @@
 # React Native Application
 ### Used technologies:
 * React Native
-* Redux (with an Async Redux library: redux-thunk)
+* Redux (with an async Redux library: redux-thunk)
 * ES6
 * Flexbox
 * React Navigation
