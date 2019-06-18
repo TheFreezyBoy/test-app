@@ -15,6 +15,9 @@
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
+    "ws": ">=3.3.1"
+    "braces": ">=2.3.1"
+
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
